@@ -1,0 +1,301 @@
+.auth {
+  overflow: hidden;
+  user-select: none;
+}
+.auth-head {
+  background: linear-gradient(#68146B 30%, #C72589) no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 1em 0 3em 0;
+}
+.auth-head-logo {
+  width: 5em;
+  height: 5em;
+}
+.auth-head-logo img {
+  width: 100%;
+}
+.auth-head h1 {
+  margin: 0;
+  padding: 0.4em 0;
+}
+@media only screen and (min-width: 992px) {
+  .auth-head h1 {
+    font-size: 2em;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .auth-head {
+    padding: 1em 0 7em 0;
+  }
+}
+.auth-container {
+  position: relative;
+}
+.auth-container:before {
+  content: "";
+  position: absolute;
+  top: -44px;
+  left: -10%;
+  width: 120%;
+  height: 10em;
+  border-radius: 50% 50% 0 0;
+  background: #FAFAFA;
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .auth-container:before {
+    top: -94px;
+    height: 20em;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .auth-container:before {
+    top: -80px;
+    height: 22em;
+  }
+}
+.auth-container-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 88%;
+  margin: auto;
+  color: #68146B;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.auth-container-menu-cursor {
+  background: linear-gradient(#68146B 30%, #C72589) no-repeat;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  border-radius: 5px;
+  left: 0;
+  transition: left 200ms linear;
+}
+.auth-container-menu-item {
+  width: 50%;
+  padding: 1em;
+  font-size: 1em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+}
+.auth-container-menu-item.active {
+  color: white;
+}
+.auth-container-menu-item p {
+  margin: 0;
+}
+@media only screen and (min-width: 769px) {
+  .auth-container-menu {
+    width: 650px;
+  }
+}
+.auth-container-form {
+  display: flex;
+}
+.auth-container-form-login {
+  transform: translateX(0);
+  transition: all 200ms linear;
+}
+.auth-container-form-login.hide {
+  transform: translateX(-100%);
+}
+.auth-container-form-login-input {
+  position: relative;
+  max-width: 650px;
+  margin: auto;
+}
+.auth-container-form-login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth-container-form-login-button-content {
+  border-radius: 10px;
+  background: linear-gradient(#68146B 30%, #C72589);
+  color: white;
+  padding: 0.8em 2em;
+  font-size: 1.2em;
+  margin: 1.2em 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.auth-container-form-login-button-content::before {
+  content: "Se connecter";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(#a720ab 30%, #e058ac);
+  opacity: 0;
+  transition: all 250ms linear;
+}
+.auth-container-form-login-button-content:hover::before {
+  opacity: 1;
+}
+.auth-container-form-register {
+  transform: translateX(-100%);
+  transition: all 200ms linear;
+}
+.auth-container-form-register.hide {
+  transform: translateX(0);
+}
+.auth-container-form-register-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.auth-container-form-register-select-preview {
+  width: 5em;
+  height: 5em;
+  margin-top: 2em;
+}
+.auth-container-form-register-select-preview img {
+  width: 100%;
+}
+.auth-container-form-register-select-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: absolute;
+  z-index: 1;
+  top: 7.5em;
+  background-color: #FAFAFA;
+  width: 100%;
+}
+.auth-container-form-register-select-options.hide {
+  display: none;
+}
+.auth-container-form-register-select-options-option {
+  width: 4.7em;
+  height: 4.7em;
+  margin: 0.2em;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+}
+.auth-container-form-register-select-options-option.active {
+  border: 2px solid #68146B;
+  background-color: rgba(199, 37, 137, 0.2);
+}
+.auth-container-form-register-select-options-option img {
+  width: 100%;
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .auth-container-form-register-select-options {
+    width: 42.4em;
+    padding: 0 11em;
+    box-sizing: border-box;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .auth-container-form-register-select-options {
+    width: 42.4em;
+    padding: 0 11em;
+    box-sizing: border-box;
+  }
+}
+.auth-container-form-register-input {
+  position: relative;
+  max-width: 650px;
+  margin: auto;
+}
+.auth-container-form-register-input #conf-password {
+  width: 7em;
+}
+.auth-container-form-register-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth-container-form-register-button-content {
+  border-radius: 10px;
+  background: linear-gradient(#68146B 30%, #C72589);
+  color: white;
+  padding: 0.8em 2em;
+  font-size: 1.2em;
+  margin: 1.2em 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.auth-container-form-register-button-content::before {
+  content: "S'inscrire";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(#a720ab 30%, #e058ac);
+  opacity: 0;
+  transition: all 250ms linear;
+}
+.auth-container-form-register-button-content:hover::before {
+  opacity: 1;
+}
+
+form {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  padding: 0 6%;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  border-bottom: 2px solid #68146B;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  margin: 2em 0 0.5em 0;
+  box-sizing: border-box;
+  font-size: 1.1em;
+}
+input:focus {
+  border-bottom: 2px solid #C72589;
+  outline: none;
+}
+input#login-password, input#register-password, input#confirmation-password {
+  padding: 0.4em 0 0.4em 6.7em;
+}
+input#login-username, input#register-username {
+  padding: 0.4em 0 0.4em 4.2em;
+}
+
+label {
+  position: absolute;
+  top: 2.6em;
+  left: 0.4em;
+  color: #68146B;
+}
+label:has(+ input:focus) {
+  color: #C72589;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=auth.css.map */

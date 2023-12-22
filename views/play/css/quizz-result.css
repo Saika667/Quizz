@@ -1,0 +1,116 @@
+.result {
+  overflow: hidden;
+  user-select: none;
+}
+.result-head {
+  background: linear-gradient(#68146B 30%, #C72589) no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 1em 0 3em 0;
+}
+.result-head-logo {
+  width: 5em;
+  height: 5em;
+}
+.result-head-logo img {
+  width: 100%;
+}
+.result-head h1 {
+  margin: 0;
+  padding: 0.9em 0;
+}
+@media only screen and (min-width: 992px) {
+  .result-head h1 {
+    font-size: 2em;
+  }
+}
+.result-container {
+  position: relative;
+  padding: 1em 0;
+}
+.result-container:before {
+  content: "";
+  position: absolute;
+  top: -44px;
+  left: -10%;
+  width: 120%;
+  height: 10em;
+  border-radius: 50% 50% 0 0;
+  background: #FAFAFA;
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .result-container:before {
+    top: -94px;
+    height: 20em;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .result-container:before {
+    top: -80px;
+    height: 22em;
+  }
+}
+.result-container-quizz {
+  position: relative;
+  padding: 1.4em;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: auto;
+  box-sizing: border-box;
+  color: #68146B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.result-container-quizz h2 {
+  text-align: center;
+}
+.result-container-quizz-answer-correct {
+  color: #b739bb;
+  font-size: 5em;
+  font-weight: 600;
+}
+.result-container-quizz-answer-total {
+  font-size: 2em;
+  font-weight: 300;
+}
+.result-container-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result-container-button-content {
+  border-radius: 10px;
+  background: linear-gradient(#68146B 30%, #C72589);
+  color: white;
+  padding: 0.8em 3em;
+  font-size: 1.2em;
+  margin: 1.2em 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.result-container-button-content::before {
+  content: "Accueil";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(#a720ab 30%, #e058ac);
+  opacity: 0;
+  transition: all 250ms linear;
+}
+.result-container-button-content:hover::before {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=quizz-result.css.map */

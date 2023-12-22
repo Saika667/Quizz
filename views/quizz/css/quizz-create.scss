@@ -1,0 +1,483 @@
+.create {
+    overflow: hidden;
+
+    &-head {
+        background: linear-gradient(#68146B 30%, #C72589) no-repeat;
+        color: white;
+        padding: 1em 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+        &-logo {
+            width: 5em;
+            height: 5em;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &-back {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            cursor: pointer;
+
+            &:hover {
+                animation: buttonMove 1s linear infinite;
+            }
+
+            @media only screen and (min-width : 769px) and (max-width : 991px) {
+                font-size: 2em;
+            }
+
+            @media only screen and (min-width : 992px) {
+                font-size: 1.7em;
+            }
+        }
+
+        h2 {
+            font-weight: 500;
+            font-size: 1.7em;
+            margin: 0;
+            padding: 1.4em 0 2.3em 0;
+            user-select: none;
+
+            @media only screen and (min-width : 769px) and (max-width : 991px) {
+                font-size: 2.3em;
+                padding: 1.4em 0 2em 0;
+            }
+        }
+
+        @media only screen and (min-width : 769px) and (max-width : 991px) {
+            padding: 1em 0 4em 0;
+        }
+    }
+    
+    &-container {
+        padding: 0 0 1em 0;
+        position: relative;
+    
+        &:before {
+            content: '';
+            position: absolute;
+            top: -44px;
+            left: -10%;
+            width: 120%;
+            height: 10em;
+            border-radius: 50% 50% 0 0;
+            background: #FAFAFA;
+
+            @media only screen and (min-width : 769px) and (max-width : 991px) {
+                top: -94px;
+                height: 20em;
+            }
+        }
+    
+        &-form {
+            position: inherit;
+            display: flex;
+            flex-direction: column;
+            width: 88%;
+            margin: auto;
+            color: #68146B;
+    
+            &-general {
+                width: 100%;
+                background-color: white;
+                margin: 0.8em auto;
+                border-radius: 10px;
+                box-shadow: 2px 2px 8px 2px rgba(0,0,0,0.1);
+                padding: 0.8em 1em;
+                font-weight: 300;
+                box-sizing: border-box;
+                
+                &-name {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    #quizzName {
+                        width: 60%;
+                        user-select: none;
+
+                        @media only screen and (min-width : 769px) and (max-width : 991px) {
+                            width: 75%;
+                            font-size: 1.1em;
+                        }
+
+                        @media only screen and (min-width : 992px) {
+                            width: 80%;
+                            font-size: 1em;
+                        }
+                    }
+
+                    @media only screen and (min-width : 769px) and (max-width : 991px) {
+                        font-size: 1.5em;
+                    }
+                }
+                
+
+                &-select {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 0.8em 0 0 0;
+                    user-select: none;
+
+                    select {
+                        font-family: "Roboto", sans-serif;
+                        font-size: 1em;
+                        border: none;
+                        border-radius: 3px;
+                        box-shadow: 0px 0px 6px 0px #68146B;
+                        padding: 0.4em;
+                        color: #68146b;
+
+                        @media only screen and (min-width : 769px) and (max-width : 991px) {
+                            width: 40%;
+                        }
+                    }
+
+                    @media only screen and (min-width : 769px) and (max-width : 991px) {
+                        font-size: 1.5em;
+                    }
+                }
+
+                @media only screen and (min-width : 769px) and (max-width : 991px) {
+                    padding: 1.6em 3em;
+                }
+
+                @media only screen and (min-width : 992px) {
+                    font-size: 1.4em;
+                }
+            }
+    
+            &-question {
+                display: none;
+                flex-direction: column;
+
+                &-content {
+                    background-color: white;
+                    margin: 0.8em 0 0 0;
+                    border-radius: 10px;
+                    box-shadow: 2px 2px 8px 2px rgba(0,0,0,0.1);
+                    padding: 0.8em 1em;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+
+                    &.animate {
+                        animation: appearence 500ms linear;
+                    }
+
+                    .label-question {
+                        margin: 0 auto 0.4em auto;
+                        user-select: none;
+
+                        @media only screen and (min-width : 769px) and (max-width : 991px) {
+                            font-size: 2em;
+                        }
+
+                        @media only screen and (min-width : 992px) {
+                            font-size: 1.7em;
+                        }
+                    }
+
+                    textarea {
+                        height: 5em;
+                        min-height: 5em;
+                        resize: none;
+                        padding: 0 5px;
+                        margin-bottom: .4em;
+                        font-family: "Roboto", sans-serif;
+
+                        @media only screen and (min-width : 992px) {
+                            height: 7em;
+                            min-height: 7em;
+                            padding: .4em .8em;
+                            font-size: 1.4em;
+                        }
+                    }
+
+                    &-answer {
+                        h3 {
+                            font-weight: 500;
+                            color: #68146B;
+                            margin: 0.6em 0;
+                            user-select: none;
+
+                            @media only screen and (min-width : 769px) and (max-width : 991px) {
+                                font-size: 2em;
+                            }
+
+                            @media only screen and (min-width : 992px) {
+                                font-size: 1.6em;
+                            }
+                        }
+
+                        &-wrapper {
+                            &-content {
+                                display: flex;
+                                align-items: center;
+                                margin: 0.6em 0;
+    
+                                .delete-answer-button {
+                                    color: #68146B;
+                                    background: none;
+                                    border: none;
+                                    margin: 0;
+                                    padding: 0 0 0 1em;
+                                    cursor: pointer;
+                                    user-select: none;
+    
+                                    &::before {
+                                        display: none;
+                                    }
+                                }
+    
+                                &-radio {
+                                    margin: 0 1em 0 0;
+                                    box-shadow: none;
+                                }
+    
+                                &-input {
+                                    box-sizing: border-box;
+                                    width: 100%;
+                                    @media only screen and (min-width : 769px) and (max-width : 991px) {
+                                        width: 72vw;
+                                    }
+    
+                                    @media only screen and (min-width : 992px) {
+                                        width: 100%;
+                                        max-width: 940px;
+                                    }
+                                }
+                                label {
+                                    width: 100%;
+                                }
+                               
+    
+                                @media only screen and (min-width : 769px) {
+                                    margin: 1.3em 0 .4em 0;
+    
+                                    label {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &-add {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+
+                        .add-answer-button {
+                            border: none;
+                            background: none;
+                            color: #68146b;
+                            font-size: 0.9em;
+                            margin: 0;
+                            padding: 0;
+                            cursor: pointer;
+                            user-select: none;
+
+                            &::before {
+                                display: none;
+                            }
+
+                            @media only screen and (min-width : 769px) and (max-width : 991px) {
+                                font-size: 1.6em;
+                                padding: 1em 0;
+                            }
+
+                            @media only screen and (min-width : 992px) {
+                                font-size: 1.2em;
+                                margin: 1em 0;
+                            }
+                        }
+                    }
+                    .delete-question-button {
+
+                        i {
+                            position: relative;
+                            z-index: 1;
+                        }
+
+                        &::before {
+                            content: 'Supprimer la question';
+                            padding-left: 1.3em;
+                        }
+                    }
+
+                    @media only screen and (min-width : 992px) {
+                        padding: 3em 2em;
+                    }
+                }
+            }
+    
+            &-add {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0.7em 0 0 0;
+
+                #add-question-button {
+                    i {
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    &::before {
+                        content: 'Ajouter une question';
+                        padding-left: 1.3em;
+                    }
+                }
+            }
+    
+            &-send {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                button {
+                    i {
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    &::before {
+                        content: 'Envoyer';
+                        padding-left: 1.4em;
+                    }
+                }
+            }
+
+            @media only screen and (min-width : 992px) {
+                max-width: 1050px;
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width : 992px) {
+            padding: 0 2em 1em 2em;
+        }
+    }
+}
+
+textarea, input {
+    border: none;
+    box-shadow: 0px 0px 6px 0px #68146B;
+    border-radius: 3px;
+    padding: 0.4em;
+    font-size: 1em;
+
+    &:focus:not(.create-container-form-question-content-answer-wrapper-content-radio) {
+        border-radius: 2px;
+        outline: 2px solid #C72589;
+    }
+
+    @media only screen and (min-width : 769px) and (max-width : 991px) {
+        font-size: 1.5em;
+    }
+
+    @media only screen and (min-width : 992px) {
+        font-size: 1.2em;
+    }
+}
+
+button {
+    padding: 0.5em 2em;
+    margin: 1em 0;
+    background: linear-gradient(150deg, #68146B 40%, #C72589);
+    color: white;
+    border-radius: 7px;
+    border: 1px solid #C72589;
+    font-size: 1em;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+
+
+    &::before {
+        content: '';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(lighten(#68146B, 15%) 30%, lighten(#C72589, 15%));
+        opacity: 0;
+        transition: all 250ms linear;
+    }
+    
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    i {
+        padding: 0 .2em 0 0;
+    }
+
+    @media only screen and (min-width : 769px) and (max-width : 991px) {
+        font-size: 1.7em;
+    }
+
+    @media only screen and (min-width : 992px) {
+        font-size: 1.3em;
+    }
+}
+
+
+@keyframes appearence {
+    0% {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    100% {
+        opacity: 1;
+        //la div sera toujours en dessoous de 700px, cela permet de faire fonctionner l'animation
+        max-height: 700px;
+    }
+}
+
+@keyframes buttonMove {
+    0% {
+        transform: translateX(0);
+        animation-timing-function: ease-in-out;
+    }
+    25% {
+        transform: translateX(-10px);
+        animation-timing-function: ease-out;
+    }
+    50% {
+        transform: translateX(5px);
+        animation-timing-function: ease-in;
+    }
+    75% {
+        transform: translateX(-5px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateX(0);
+        animation-timing-function: ease-in-out;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+    font-style: italic;
+}

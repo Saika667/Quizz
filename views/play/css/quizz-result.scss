@@ -1,0 +1,131 @@
+.result {
+    overflow: hidden;
+    user-select: none;
+
+    &-head {
+        background: linear-gradient(#68146B 30%, #C72589) no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 1em 0 3em 0;
+
+        &-logo {
+            width: 5em;
+            height: 5em;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        h1 {
+            margin: 0;
+            padding: .9em 0;
+
+            @media only screen and (min-width : 992px) {
+                font-size: 2em;
+            } 
+        }
+    }
+
+    &-container {
+        position: relative;
+        padding: 1em 0;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -44px;
+            left: -10%;
+            width: 120%;
+            height: 10em;
+            border-radius: 50% 50% 0 0;
+            background: #FAFAFA;
+
+            @media only screen and (min-width : 769px) and (max-width : 991px) {
+                top: -94px;
+                height: 20em;
+            }
+
+            @media only screen and (min-width : 769px) and (max-width : 991px) {
+                top: -80px;
+                height: 22em;
+            }
+        }
+
+        &-quizz {
+            position: relative;
+            padding: 1.4em;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px 2px rgba(0,0,0,0.1);
+            width: 90%;
+            margin: auto;
+            box-sizing: border-box;
+            color: #68146B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            h2 {
+                text-align: center;
+            }
+
+            &-answer {
+
+                &-correct {
+                    color: #b739bb;
+                    font-size: 5em;
+                    font-weight: 600;
+                }
+
+                &-total {
+                    font-size: 2em;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        &-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &-content {
+                border-radius: 10px;
+                background: linear-gradient(#68146B 30%, #C72589);
+                color: white;
+                padding: 0.8em 3em;
+                font-size: 1.2em;
+                margin: 1.2em 0;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+
+
+                &::before {
+                    content: 'Accueil';
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(lighten(#68146B, 15%) 30%, lighten(#C72589, 15%));
+                    opacity: 0;
+                    transition: all 250ms linear;
+                }
+                
+                &:hover {
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

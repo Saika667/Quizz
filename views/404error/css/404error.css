@@ -1,0 +1,72 @@
+.error {
+  overflow: hidden;
+  user-select: none;
+}
+.error-head {
+  background: linear-gradient(#68146B 30%, #C72589) no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 1.5em 0 4em 0;
+}
+.error-head-logo {
+  width: 5em;
+  height: 5em;
+}
+.error-head-logo img {
+  width: 100%;
+}
+.error-head h1 {
+  font-weight: 600;
+  font-size: 3em;
+  margin: 0;
+  padding: 0.4em 0 0.3em 0;
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .error-head h1 {
+    font-size: 2.7em;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .error-head {
+    padding: 1em 0 7em 0;
+  }
+}
+.error-container {
+  padding: 0 0 1em 0;
+  position: relative;
+}
+.error-container:before {
+  content: "";
+  position: absolute;
+  top: -44px;
+  left: -10%;
+  width: 120%;
+  height: 10em;
+  border-radius: 50% 50% 0 0;
+  background: #FAFAFA;
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .error-container:before {
+    top: -94px;
+    height: 20em;
+  }
+}
+.error-container h2 {
+  position: relative;
+  text-align: center;
+  padding: 3em 2em;
+  font-size: 4em;
+  color: gray;
+  font-weight: 400;
+  margin: 0;
+}
+@media only screen and (min-width: 992px) {
+  .error-container {
+    padding: 1em 0;
+  }
+}
+
+/*# sourceMappingURL=404error.css.map */
