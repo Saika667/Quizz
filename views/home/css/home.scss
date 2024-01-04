@@ -286,7 +286,7 @@
             font-size: 2em;
         }
         @media only screen and (min-width : 992px) {
-            width: 100%;
+            width: 95%;
             font-size: 2em;
         }
     }
@@ -394,7 +394,7 @@
             }
             @media only screen and (min-width : 992px) {
                 width: 19%;
-                margin: 2em 0;
+                margin: 2em .25em;
             }
         }
 
@@ -406,13 +406,14 @@
             margin-top: -.5em;
 
             @media only screen and (min-width : 992px) {
-                margin: inherit;
+                margin: 2em .25em;
             }
         }
 
         @media only screen and (min-width : 992px) {
             max-width: 1050px;
             width: 95%;
+            justify-content: center;
         }
     }
 

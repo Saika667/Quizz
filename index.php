@@ -35,6 +35,7 @@ switch($controller) {
 
         if ($method === "POST") {
             $controller->createQuizz();
+            return;
         }
 
         switch($action) {

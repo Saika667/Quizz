@@ -27,7 +27,7 @@ class PlayController extends BaseController {
         // json_decode(file_get_contents('php://input'), true) sert à récupérer les données via le body de la requête POST du js
         $postData = json_decode(file_get_contents('php://input'), true);
         $participationModel = new ParticipationModel();
-        $participationId = $participationModel->createParticipation($postData['quizzId']);
+        $participationId = $participationModel->createParticipation($postData['quizzId'], $user['id']);
         foreach($postData['quizzAnswers'] as $answer) {
             $this->dbModel->saveAnswer($answer, $participationId, $user['id']);
         }

@@ -54,8 +54,9 @@ for (let i = 0; i < validateButtons.length; i++) {
         }).then(function(response) {
             return response.json();
         }).then(function(data) {
-            if (data["valid_answer_id"] === answerId) {
+            if (parseInt(data["valid_answer_id"]) === parseInt(answerId)) {
                 selectedAnswer.classList.add('correct');
+                selectedAnswer.classList.remove('incorrect');
                 selectedAnswerCheck.classList.remove('hide');
                 selectedAnswerFullCircle.classList.add('hide');
                 userAnswers.push({question : questionId, answer : answerId});

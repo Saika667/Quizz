@@ -195,6 +195,7 @@
 }
 .play-question-container-wrapper-answers-container p {
   margin: 0;
+  padding-right: 0.4em;
 }
 @media only screen and (min-width: 992px) {
   .play-question-container-wrapper-answers-container p {

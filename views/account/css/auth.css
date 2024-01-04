@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .auth {
   overflow: hidden;
   user-select: none;
@@ -118,6 +119,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .auth-container-form-login-button-content {
   border-radius: 10px;
@@ -125,13 +127,12 @@
   color: white;
   padding: 0.8em 2em;
   font-size: 1.2em;
-  margin: 1.2em 0;
+  margin: 1.2em 1em;
   cursor: pointer;
   position: relative;
   overflow: hidden;
 }
 .auth-container-form-login-button-content::before {
-  content: "Se connecter";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,8 +145,19 @@
   opacity: 0;
   transition: all 250ms linear;
 }
+.auth-container-form-login-button-content#login-button::before {
+  content: "Se connecter";
+}
+.auth-container-form-login-button-content#guest-login-button::before {
+  content: "Connexion invité";
+}
 .auth-container-form-login-button-content:hover::before {
   opacity: 1;
+}
+@media only screen and (min-width: 769px) {
+  .auth-container-form-login-button {
+    flex-direction: row;
+  }
 }
 .auth-container-form-register {
   transform: translateX(-100%);

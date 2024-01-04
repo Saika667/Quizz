@@ -3,7 +3,7 @@
 require_once("BaseModel.php");
 
 class ParticipationModel extends BaseModel {
-    public function createParticipation(int $quizzId, int $userId = 1): int {
+    public function createParticipation(int $quizzId, int $userId): int {
         $date = new DateTime("now", new DateTimeZone('Europe/Paris'));
         $this->db->query(
             "INSERT INTO participations (`user_id`, `quizz_id`, `participation_dt`) VALUES (?, ?, ?)",

@@ -21,20 +21,23 @@
         <div class="auth-container-form">
             <form class="auth-container-form-login">
                 <div class="auth-container-form-login-input">
-                    <label for="name">Pseudo :</label>
+                    <label for="login-username">Pseudo :</label>
                     <input name="name" type="text" id="login-username"/>
                     <span class="error" id="login-pseudo-error"></span>
                 </div>
 
                 <div class="auth-container-form-login-input">
-                    <label for="password">Mot de passe :</label>
+                    <label for="login-password">Mot de passe :</label>
                     <input name="password" type="password" id="login-password"/>
                     <span class="error" id="login-password-error"></span>
                 </div>
 
                 <div class="auth-container-form-login-button">
-                    <div class="auth-container-form-login-button-content">
+                    <div class="auth-container-form-login-button-content" id="login-button">
                         <span>Se connecter</span>
+                    </div>
+                    <div class="auth-container-form-login-button-content" id="guest-login-button">
+                        <span>Connexion invité</span>
                     </div>
                 </div>
                 <span class="error" id="login-error"></span>
@@ -114,19 +117,19 @@
                 </div>
 
                 <div class="auth-container-form-register-input">
-                    <label for="name">Pseudo :</label>
+                    <label for="register-username">Pseudo :</label>
                     <input name="name" type="text" id="register-username"/>
                     <span class="error" id="register-pseudo-error"></span>
                 </div>
 
                 <div class="auth-container-form-register-input">
-                    <label for="password">Mot de passe :</label>
+                    <label for="register-password">Mot de passe :</label>
                     <input name="password" type="password" id="register-password"/>
                     <span class="error" id="register-password-error"></span>
                 </div>
 
                 <div class="auth-container-form-register-input">
-                    <label for="confirmationPassword" id="conf-password">Confirmation :</label>
+                    <label for="confirmation-password" id="conf-password">Confirmation :</label>
                     <input name="confirmationPassword" type="password" id="confirmation-password"/>
                     <span class="error" id="register-conf-password-error"></span>
                 </div>

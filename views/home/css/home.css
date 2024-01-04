@@ -285,7 +285,7 @@
 }
 @media only screen and (min-width: 992px) {
   .quizz h3 {
-    width: 100%;
+    width: 95%;
     font-size: 2em;
   }
 }
@@ -395,7 +395,7 @@
 @media only screen and (min-width: 992px) {
   .quizz-container-theme {
     width: 19%;
-    margin: 2em 0;
+    margin: 2em 0.25em;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
@@ -408,13 +408,14 @@
 }
 @media only screen and (min-width: 992px) {
   .quizz-container > :nth-child(2n+1):not(:first-child) {
-    margin: inherit;
+    margin: 2em 0.25em;
   }
 }
 @media only screen and (min-width: 992px) {
   .quizz-container {
     max-width: 1050px;
     width: 95%;
+    justify-content: center;
   }
 }
 @media only screen and (min-width: 992px) {

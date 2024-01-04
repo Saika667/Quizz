@@ -18,7 +18,7 @@ document.getElementById('add-question-button').addEventListener('click', functio
                             <input class="create-container-form-question-content-answer-wrapper-content-input" name="questions[${questionNumber}][answers][]" type="text"/>
                         </label>
                     </div>
-                    <span class="error" id="${questionNumber + 1}-answer-1-error"></span>
+                    <span class="error" id="question-${questionNumber + 1}-answer-1-error"></span>
                 </div>
 
                 <div class="create-container-form-question-content-answer-wrapper">
@@ -28,10 +28,10 @@ document.getElementById('add-question-button').addEventListener('click', functio
                             <input class="create-container-form-question-content-answer-wrapper-content-input" name="questions[${questionNumber}][answers][]" type="text"/>
                         </label>
                     </div>
-                    <span class="error" id="${questionNumber + 1}-answer-2-error"></span>
+                    <span class="error" id="question-${questionNumber + 1}-answer-2-error"></span>
                 </div>
             </div>
-            <span class="error" id="${questionNumber + 1}-correct-answer-error"></span>
+            <span class="error" id="question-${questionNumber + 1}-correct-answer-error"></span>
             
             <div class="create-container-form-question-content-add">
                 <button class="add-answer-button" type="button">
@@ -82,7 +82,7 @@ function handleAddAnswer(questionNumber) {
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
             </div>
-            <span class="error" id="${questionNumber + 1}-answer-${answersNumber}-error"></span>
+            <span class="error" id="question-${questionNumber + 1}-answer-${answersNumber}-error"></span>
         </div>
     `;
 
@@ -111,7 +111,6 @@ function handleRemoveQuestion(element) {
     reindexQuizz();
     const questionsContainer = document.getElementById('questions-container');
     const numberOfChild = questionsContainer.childElementCount;
-    console.log(numberOfChild);
     if(numberOfChild === 0) {
         questionsContainer.style.display = "none";
     }
@@ -125,8 +124,6 @@ function reindexQuizz() {
 
     for (let i = 0; i < questionNumber; i++) {
         const elements = questionsContainer.children[i].children;
-        console.log(i);
-        console.log(elements[0]);
         //elements[0] => correspond au label
         elements[0].setAttribute("for", `question-${i + 1}`);
         elements[0].innerHTML = `Question ${i + 1} :`;
@@ -134,22 +131,30 @@ function reindexQuizz() {
         elements[1].setAttribute("name", `questions[${i}][question]`);
         elements[1].setAttribute("id", `question-${i + 1}`);
         //elements[2] => correspond à la div container des réponses
-        elements[2].setAttribute("id", `question-${i + 1}-answers`);
+        elements[3].setAttribute("id", `question-${i + 1}-answers`);
+
+        // Reindex errors span
+        const errorsSpan = questionsContainer.children[i].querySelectorAll('span.error');
+        for (let k = 0; k < errorsSpan.length; k++) {
+            const regex = /question-[0-9]/g;
+            errorsSpan[k].setAttribute("id", errorsSpan[k].id.replace(regex, `question-${i + 1}`));
+        }
 
         //récupère les enfants de la div container des réponses (H3 + div correspondant à réponse)
-        const childrenDivAnswers = elements[2].children;
+        const childrenDivAnswers = elements[3].children;
         //j = 1 car le premier élément du tableau c'est le titre et il n'y a rien à changer dessus
         for (let j = 1; j < childrenDivAnswers.length; j++) {
             //récupère les éléments de chaque div réponse (input + label)
-            const elementsDivAnswer = childrenDivAnswers[j].children;
-            //elementsDivAnswer[0] => correspond à l'input
-            elementsDivAnswer[0].setAttribute("name", `questions[${i}][validAnswer]`);
-            elementsDivAnswer[0].setAttribute("id", `question-${i + 1}-answer-${j}`);
-            //elementsDivAnswer[1] => correspond au label
-            elementsDivAnswer[1].setAttribute("for", `question-${i + 1}-answer-${j}`);
+            const elementsDivAnswer = childrenDivAnswers[j];
+            //correspond à l'input
+            elementsDivAnswer.querySelector('input[type=radio]').setAttribute("name", `questions[${i}][validAnswer]`);
+            elementsDivAnswer.querySelector('input[type=radio]').setAttribute("id", `question-${i + 1}-answer-${j}`);
+
+            //correspond au label
+            elementsDivAnswer.querySelector('label').setAttribute("for", `question-${i + 1}-answer-${j}`);
 
             //récupère l'input à l'intérieur du label
-            elementsDivAnswer[1].children[0].setAttribute("name", `questions[${i}][answers][]`);
+            elementsDivAnswer.querySelector('label input').setAttribute("name", `questions[${i}][answers][]`);
         }
     }
 }
@@ -167,12 +172,14 @@ sendButton.addEventListener('click', function() {
     const questions = document.getElementsByClassName('create-container-form-question-content');
     const quizzName = document.getElementById('quizzName').value;
     const quizzTheme = document.getElementById('theme').value;
+    let hasError = false;
 
     const quizzNameError = document.getElementById('quizz-name-error');
     quizzNameError.textContent = '';
 
     if(quizzName.trim() === '') {
         quizzNameError.textContent = "Un titre de quiz est requis.";
+        hasError = true;
     }
 
     let quizzCreationData = {
@@ -185,12 +192,13 @@ sendButton.addEventListener('click', function() {
         //récupère le contenu de la question
         const questionContent = document.getElementById(`question-${i + 1}`).value;
         const questionError = document.getElementById(`question-${i + 1}-content-error`);
-        const correctAnswerError = document.getElementById(`${i + 1}-correct-answer-error`);
+        const correctAnswerError = document.getElementById(`question-${i + 1}-correct-answer-error`);
         correctAnswerError.textContent = '';
         questionError.textContent = '';
 
         if(questionContent.trim() === '') {
             questionError.textContent = "La question est requise.";
+            hasError = true;
         }
 
         let questionData = {};
@@ -200,25 +208,30 @@ sendButton.addEventListener('click', function() {
         const answers = document.querySelectorAll(`#question-${i + 1}-answers .create-container-form-question-content-answer-wrapper-content`);
         
         for(let j = 0; j < answers.length; j++) {
-            console.log(`question-${i + 1}-answer-${j + 1}`);
             const isCorrectAnswer = document.getElementById(`question-${i + 1}-answer-${j + 1}`).checked;
 
             if(isCorrectAnswer) {
                 questionData.validAnswer = j;
             }
 
-            const contentAnswerError = document.getElementById(`${i + 1}-answer-${j + 1}-error`);
+            const contentAnswerError = document.getElementById(`question-${i + 1}-answer-${j + 1}-error`);
             contentAnswerError.textContent = '';
             const contentAnswer = answers[j].querySelector('.create-container-form-question-content-answer-wrapper-content-input').value;
             if(contentAnswer.trim() === '') {
                 contentAnswerError.textContent = 'La réponse est requise.';
+                hasError = true;
             }
             questionData.answers.push(contentAnswer);
         }
         if(!questionData.hasOwnProperty('validAnswer')) {
             correctAnswerError.textContent = 'Sélectionner la réponse correcte.';
+            hasError = true;
         }
         quizzCreationData.questions.push(questionData);
+    }
+
+    if (hasError) {
+        return;
     }
 
     fetch("/quizz/quizz", {
